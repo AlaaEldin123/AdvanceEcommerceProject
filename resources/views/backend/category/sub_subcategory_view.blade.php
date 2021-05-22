@@ -28,7 +28,7 @@
 								<th>Category </th>
 								<th>SubCategory Name</th>
 								<th>Sub-Category Name English</th>
-								
+								<th>Sub-Category Name Arabic</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -38,6 +38,8 @@
 		<td> {{ $item['category']['category_name_en'] }}  </td>
 		<td>{{ $item['subcategory']['subcategory_name_en'] }}</td>
 		 <td>{{ $item->subsubcategory_name_en }}</td>
+		 		 <td>{{ $item->subsubcategory_name_ar }}</td>
+
 		<td width="30%">
  <a href="{{ route('subsubcategory.edit',$item->id) }}" class="btn btn-info" title="Edit Data"><i class="fa fa-pencil"></i> </a>
 
@@ -76,7 +78,7 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-					   <form method="post" action="{{ route('subcategory.store') }}" >
+					   <form method="post" action="{{ route('subsubcategory.store') }}" >
 	 	@csrf
 					   
 

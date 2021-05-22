@@ -99,7 +99,7 @@
 		<h5>SubCategory  English <span class="text-danger">*</span></h5>
 		<div class="controls">
 	 <input type="text" name="subcategory_name_en" class="form-control" >
-     @error('subcategory_name_ar') 
+     @error('subcategory_name_en') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror 
 	  </div>

@@ -55,7 +55,7 @@
 	<div class="form-group">
 		<h5>SubCategory Arabic  <span class="text-danger">*</span></h5>
 		<div class="controls">
-	 <input type="text" name="subcategory_name_hin" class="form-control" value="{{ $subcategory->subcategory_name_ar }}" >
+	 <input type="text" name="subcategory_name_ar" class="form-control" value="{{ $subcategory->subcategory_name_ar }}" >
      @error('subcategory_name_ar') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror 
