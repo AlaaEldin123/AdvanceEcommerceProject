@@ -99,6 +99,15 @@ class SubCategoryController extends Controller
      	return json_encode($subcat);
      }
 
+
+      public function GetSubSubCategory($subcategory_id){
+
+     	$Subsubcat = SubSubCategory::where('subcategory_id',$subcategory_id)->orderBy('subsubcategory_name_en','ASC')->get();
+     	return json_encode($Subsubcat);
+     }
+
+
+
 public function SubSubCategoryStore(Request $request){
 	 $request->validate([
     		'category_id' => 'required',
