@@ -12,7 +12,7 @@
     
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="{{asset('backend/css/vendors_css.css')}}">
-	  
+	    
 	<!-- Style-->  
 	<link rel="stylesheet" href="{{asset('backend/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('backend/css/skin_color.css')}}">
@@ -59,6 +59,14 @@
   
 	<script src="{{asset('../assets/vendor_components/datatable/datatables.min.js')}}"></script>
   <script src="{{asset('backend/js/pages/data-table.js')}}"></script>
+
+<!-- tag input script -->
+
+  <script src="{{asset('../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js')}}"></script>
+<!-- CK editor -->
+  <script src="{{asset('../assets/vendor_components/ckeditor/ckeditor.js')}}"></script>
+  <script src="{{asset('../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js')}}"></script>
+  <script src="{{ asset('backend/js/pages/editor.js')}}"></script>
 	<!-- Sunny Admin App -->
 	<script src="{{ asset('backend/js/template.js')}}"></script>
 	<script src="{{ asset('backend/js/pages/dashboard.js')}}"></script>
