@@ -20,7 +20,9 @@
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
-					<form novalidate>
+					  <form method="post" action="{{ route('product-store') }}" enctype="multipart/form-data" >
+
+						@csrf
 					  <div class="row">
 						<div class="col-12">						
 							
@@ -29,7 +31,7 @@
 									 <div class="form-group">
 	<h5>Brand Select <span class="text-danger">*</span></h5>
 	<div class="controls">
-		<select name="brand_id" class="form-control"  >
+		<select name="brand_id" class="form-control" required="" >
 			<option value="" selected="" disabled="">Select Category</option>
 			@foreach($brands as $brand)
  <option value="{{ $brand->id }}">{{ $brand->brand_name_en }}</option>	
@@ -41,13 +43,13 @@
 	 </div>
 		 </div>
 									
-								</div> <!-- end col 4 -->
+					</div> <!-- end col 4 -->
 								
-								<div class="col-md-4"> <!-- start col 4 -->
+						<div class="col-md-4"> <!-- start col 4 -->
 									 <div class="form-group">
 	<h5>Category Select <span class="text-danger">*</span></h5>
 	<div class="controls">
-		<select name="category_id" class="form-control"  >
+		<select name="category_id" class="form-control" required="" >
 			<option value="" selected="" disabled="">Select Category</option>
 			@foreach($categories as $category)
  <option value="{{ $category->id }}">{{ $category->category_name_en }}</option>	
@@ -64,7 +66,7 @@
 									 <div class="form-group">
 	<h5>Sub-Category Select <span class="text-danger">*</span></h5>
 	<div class="controls">
-		<select name="subcategory_id" class="form-control"  >
+		<select name="subcategory_id" class="form-control" required="" >
 			<option value="" selected="" disabled="">Select Category</option>
 			
 		</select>
@@ -85,7 +87,7 @@
 									 <div class="form-group">
 	<h5>Sub-SubCategory Select <span class="text-danger">*</span></h5>
 	<div class="controls">
-		<select name="subsubcategory_id" class="form-control"  >
+		<select name="subsubcategory_id" class="form-control"  required="">
 			<option value="" selected="" disabled="">Select Sub-SubCategory</option>
 		
 		</select>
@@ -101,7 +103,7 @@
 									<div class="form-group">
 								<h5>Product Name En <span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="text" name="product_name_en" class="form-control">
+									<input type="text" name="product_name_en" class="form-control" required="">
 									@error('product_name_en') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror 
@@ -113,7 +115,7 @@
 											<div class="form-group">
 								<h5>Product Name AR <span class="text-danger">*</span></h5>
 								<div class="controls">
-									<input type="text" name="product_name_ar" class="form-control">
+									<input type="text" name="product_name_ar" class="form-control" required="">
 									@error('product_name_ar') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror 
@@ -162,7 +164,7 @@
 				 <div class="form-group">
 			<h5>Product Tags En <span class="text-danger">*</span></h5>
 			<div class="controls">
-	 <input type="text" name="product_tags_en" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" required="">
+	 <input type="text" name="product_tags_en" class="form-control" value="clothers" data-role="tagsinput" required="">
      @error('product_tags_en') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror
@@ -182,7 +184,7 @@
 	    <div class="form-group">
 			<h5>Product Tags Arabic <span class="text-danger">*</span></h5>
 			<div class="controls">
-	 <input type="text" name="product_tags_ar" class="form-control" value="Lorem,Ipsum,Amet" data-role="tagsinput" required="">
+	 <input type="text" name="product_tags_ar" class="form-control" value="البسة" data-role="tagsinput" required="">
      @error('product_tags_ar') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror
@@ -211,7 +213,7 @@
 				 <div class="form-group">
 			<h5>Product Size Arabic <span class="text-danger">*</span></h5>
 			<div class="controls">
-	 <input type="text" name="product_size_ar" class="form-control" value="Small,Midium,Large" data-role="tagsinput" required="">
+	 <input type="text" name="product_size_ar" class="form-control" value="صغير , وسط, كبير" data-role="tagsinput" required="">
      @error('product_size_ar') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror
@@ -254,7 +256,7 @@
 				 <div class="form-group">
 			<h5>Product Color Ar <span class="text-danger">*</span></h5>
 			<div class="controls">
-	 <input type="text" name="product_color_ar" class="form-control" value="red,Black,Large" data-role="tagsinput" required="">
+	 <input type="text" name="product_color_ar" class="form-control" value="احمر ,و اسود" data-role="tagsinput" required="">
      @error('product_color_ar') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror
@@ -333,7 +335,7 @@
 				   <div class="form-group">
 			<h5>Main Thambail <span class="text-danger">*</span></h5>
 			<div class="controls">
-	 <input type="file" name="product_thambnail" class="form-control" onChange="mainThamUrl(this)" required="" >
+	 <input type="file" name="product_thambnail"  class="form-control" onChange="mainThamUrl(this)" required="" >
      @error('product_thambnail') 
 	 <span class="text-danger">{{ $message }}</span>
 	 @enderror
@@ -415,7 +417,7 @@
 	    <div class="form-group">
 			<h5>Long Discription English <span class="text-danger">*</span></h5>
 			<div class="controls">
-<textarea id="editor1" name="long_descp_en" rows="10" cols="80">
+<textarea id="editor1" name="long_descp_en" required="" rows="10" cols="80">
 												Long Discription English.
 						</textarea>
     
@@ -429,7 +431,7 @@
 				   <div class="form-group">
 			<h5>Long Discription Arabic<span class="text-danger">*</span></h5>
 			<div class="controls">
-<textarea id="editor2" name="long_descp_ar" rows="10" cols="80">
+<textarea id="editor2" name="long_descp_ar" required="" rows="10" cols="80">
 												Long Discription Arabic.
 						</textarea>
     
@@ -455,7 +457,7 @@
 								<div class="form-group">
 									<div class="controls">
 										<fieldset>
-											<input type="checkbox" id="checkbox_2" name="hot_deals" required value="1">
+											<input type="checkbox"  id="checkbox_2" name="hot_deals" required value="1">
 											<label for="checkbox_2">Hot Deals</label>
 										</fieldset>
 										<fieldset>
