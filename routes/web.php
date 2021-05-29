@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\BrandController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\SliderController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
@@ -28,6 +29,9 @@ Route::group(['prefix'=> 'admin', 'middleware'=>['admin:admin']], function(){
 	Route::post('/login',[AdminController::class, 'store'])->name('admin.login');
 });
 
+Route::middleware(['auth:admin'])->group(function(){
+
+
 Route::middleware(['auth:sanctum,admin', 'verified'])->get('/admin/dashboard', function () {
     return view('admin.index');
 })->name('dashboard');
@@ -44,7 +48,7 @@ Route::get('/admin/change/password',[AdminProfileController::class,'AdminChangeP
 Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
 
 
-
+});
 
 
 
@@ -141,5 +145,19 @@ Route::get('/multiimg/delete/{id}',[ProductController::class,'MultiImageDelete']
 Route::get('/inactive/{id}',[ProductController::class,'ProductInactive'])->name('product.inactive');
 Route::get('/active/{id}',[ProductController::class,'ProductActive'])->name('product.active');
 Route::get('/delete/{id}',[ProductController::class,'ProductDelete'])->name('product.delete');
+
+});
+
+// admin Slider all route
+
+Route::prefix('slider')->group(function(){
+Route::get('/view',[SliderController::class,'SliderView'])->name('manage-slider');
+Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider.store');
+Route::get('/edit/{id}', [SliderController::class, 'SliderEdit'])->name('slider.edit');
+Route::post('/update', [SliderController::class, 'SliderUpdate'])->name('slider.update');
+Route::get('/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider.delete');
+
+Route::get('/active/{id}',[SliderController::class,'SliderActive'])->name('slider.active');
+Route::get('/inactive/{id}',[SliderController::class,'SliderInactive'])->name('slider.inactive');
 
 });
