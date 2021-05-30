@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SliderController;
+use App\Http\Controllers\Frontend\LanguageController;
 
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
@@ -88,7 +89,7 @@ Route::prefix('category')->group(function(){
 Route::get('/view',[CategoryController::class,'CategoryView'])->name('all.category');
 Route::post('/store', [CategoryController::class, 'CategoryStore'])->name('category.store');
 Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('category.edit');
-Route::post('/update', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
+Route::post('/update/{id}', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
 Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
 
 						
@@ -161,3 +162,7 @@ Route::get('/active/{id}',[SliderController::class,'SliderActive'])->name('slide
 Route::get('/inactive/{id}',[SliderController::class,'SliderInactive'])->name('slider.inactive');
 
 });
+
+
+Route::get('/language/english',[LanguageController::class,'English'])->name('english.language');
+Route::get('/language/arabic',[LanguageController::class,'Arabic'])->name('arabic.language');
