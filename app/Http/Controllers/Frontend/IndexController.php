@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Slider;
 use App\Models\Product;
+use App\Models\MultiImg;
 class IndexController extends Controller
 {
     public function Index(){
@@ -78,5 +79,17 @@ return Redirect()->route('login');
 
 			return redirect()->back();
 			}
+  }
+
+
+
+
+
+  public function ProductsDetails($id,$slug){
+  	$product = Product::findOrFail($id);
+  	$multiImag = MultiImg::where('product_id',$id)->get();
+  	return view ('frontend.product.product_details',compact('product','multiImag'));
+
+
   }
 }

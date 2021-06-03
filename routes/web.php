@@ -163,6 +163,11 @@ Route::get('/inactive/{id}',[SliderController::class,'SliderInactive'])->name('s
 
 });
 
-
+// set langage
 Route::get('/language/english',[LanguageController::class,'English'])->name('english.language');
 Route::get('/language/arabic',[LanguageController::class,'Arabic'])->name('arabic.language');
+
+// FrontEnd product detals
+
+Route::get('/product/details/{id}/{slug}',[IndexController::class,'ProductsDetails']);
+

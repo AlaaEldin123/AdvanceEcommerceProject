@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class MultiImg extends Model
 {
     use HasFactory;
+     public function product(){
+        return $this->belongsTo(Product::class,'product_id','id');}
 }
