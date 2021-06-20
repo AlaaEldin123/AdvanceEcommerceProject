@@ -171,3 +171,10 @@ Route::get('/language/arabic',[LanguageController::class,'Arabic'])->name('arabi
 
 Route::get('/product/details/{id}/{slug}',[IndexController::class,'ProductsDetails']);
 
+// frontend product tags 
+Route::get('/product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
+
+
+//Frontend Subcategory Wise Data
+
+Route::get('/subcategory/product/{subcat_id}/{slag}', [IndexController::class, 'SubCatWiseProduct']);
