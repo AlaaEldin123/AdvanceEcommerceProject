@@ -102,11 +102,32 @@ class IndexController extends Controller
 
   public function ProductsDetails($id,$slug){
   	$product = Product::findOrFail($id);
+
+  	$color_en = $product->product_color_en;
+  	$product_color_en = explode(',', $color_en);
+
+	$color_ar = $product->product_color_ar;
+  	$product_color_ar = explode(',', $color_ar);
+
+
+  	$size_en = $product->product_size_en;
+  	$product_size_en = explode(',', $size_en);
+
+
+  	$size_ar = $product->product_size_ar;
+  	$product_size_ar = explode(',', $size_ar);
+
+	$cat_id = $product->category_id;
+	$relatedproduct = Product::where('category_id',$cat_id)->where('id','!=',$id)->orderBy('id','DESC')->get();
+
+
+
   	$multiImag = MultiImg::where('product_id',$id)->get();
-  	return view ('frontend.product.product_details',compact('product','multiImag'));
+  	return view ('frontend.product.product_details',compact('product','multiImag','product_color_en','product_color_ar','product_size_en','product_size_ar','relatedproduct'));
 
 
   }
+
 
 	public function TagWiseProduct($tag){
 		$products = Product::where('status',1)->where('product_tags_en',$tag)->orwhere('product_tags_ar',$tag)->orderBy('id','DESC')->paginate(3);
@@ -119,12 +140,25 @@ class IndexController extends Controller
 
 
 // subcategoey wise data
- 	public function SubCatWiseProduct($subcat_id,$slug){
-	$products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','DESC')->paginate(3);
+		public function SubCatWiseProduct($subcat_id,$slug){
+		$products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','DESC')->paginate(3);
 		$categories = Category::orderBy('category_name_en','ASC')->get();
 		return view('frontend.product.subcategory_view',compact('products','categories'));
 
- 	}
+	}
+
+
+
+
+	public function SubSubCatWiseProduct($subsubcat_id,$slug){
+		$products = Product::where('status',1)->where('subsubcategory_id',$subsubcat_id)->orderBy('id','DESC')->paginate(6);
+		$categories = Category::orderBy('category_name_en','ASC')->get();
+		return view('frontend.product.sub_subcategory_view',compact('products','categories'));
+
+	}
+
+
+
 
 
 
