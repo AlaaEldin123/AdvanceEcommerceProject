@@ -283,6 +283,7 @@ function productView(id){
             },
             url: "/cart/data/store/"+id,
             success:function(data){
+                miniCart()
                 $('#closeModel').click();
              // console.log(data)
 
@@ -323,8 +324,7 @@ function productView(id){
 
 
 <script type="text/javascript">
-    
-   function miniCart(){
+     function miniCart(){
         $.ajax({
             type: 'GET',
             url: '/product/mini/cart',
@@ -337,7 +337,7 @@ function productView(id){
 
                 $.each(response.carts, function(key,value){
                     miniCart += `<div class="cart-item product-summary">
-          <div class="row">
+         <div class="row">
             <div class="col-xs-4">
               <div class="image"> <a href="detail.html"><img src="/${value.options.image}" alt=""></a> </div>
             </div>
@@ -345,8 +345,7 @@ function productView(id){
               <h3 class="name"><a href="index.php?page-detail">${value.name}</a></h3>
               <div class="price"> ${value.price} * ${value.qty} </div>
             </div>
-            <div class="col-xs-1 action"> 
-            <button type="submit" id="${value.rowId}" onclick="miniCartRemove(this.id)"><i class="fa fa-trash"></i></button> </div>
+            <div class="col-xs-1 action"> <a href="#"><i class="fa fa-trash"></i></a> </div>
           </div>
         </div>
         <!-- /.cart-item -->
