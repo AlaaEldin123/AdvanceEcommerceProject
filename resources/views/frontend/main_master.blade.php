@@ -410,8 +410,38 @@ function productView(id){
 
 
 
+ // start  add  wishlist page 
 
- 
+ <script type="text/javascript">
+     
+function miniCartRemove(product_id){
+$.ajax({
+    type="POST",
+    dataType='json',
+    url:"/add-to-wishlist/" + product_id,
+    success:function(data){
+
+        
+    }
+
+
+})
+
+
+
+}
+
+
+
+
+ </script>
+
+
+
+
+
+
+ // end  add  wishlist page 
 
 
 
