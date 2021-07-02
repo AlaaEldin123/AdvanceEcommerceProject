@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
 
@@ -213,4 +214,13 @@ Route::get('/get-wishlist-product', [WishlistController::class, 'GetWishlistProd
 
 // remove product from wishlist page
 Route::get('/wishlist-remove/{id}', [WishlistController::class, 'RemoveWishlistProduct']);
+
+
+Route::get('/mycart', [CartPageController::class, 'MyCart'])->name('mycart');
+
+
+Route::get('/get-cart-product', [CartPageController::class, 'GetCartProduct']);
+
+
+
 });
