@@ -27,9 +27,21 @@ class CartPageController extends Controller
 
     } //end method
 
+    //Remove Product From My Cart
+
     public function RemoveCartProduct($rowId){
         Cart::remove($rowId);
 
         return response()->json(['success' => 'Successfully Remove From Cart']);
+    }// end Remove Product From My Cart
+
+    // Increment Product in My Cart
+
+    public function CartIncrement($rowId){
+         $row = Cart::get($rowId);
+        Cart::update($rowId, $row->qty + 1);
+        return response()->json('Increment');
+
+
     }
 }
