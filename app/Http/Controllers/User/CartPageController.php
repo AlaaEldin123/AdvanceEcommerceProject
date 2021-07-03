@@ -33,9 +33,9 @@ class CartPageController extends Controller
         Cart::remove($rowId);
 
         return response()->json(['success' => 'Successfully Remove From Cart']);
-    }// end Remove Product From My Cart
+    }// end Remove Product From  Cart
 
-    // Increment Product in My Cart
+    // Increment Product in  Cart
 
     public function CartIncrement($rowId){
          $row = Cart::get($rowId);
@@ -43,5 +43,21 @@ class CartPageController extends Controller
         return response()->json('Increment');
 
 
-    }
+    }     // end Increment Product in Cart
+
+
+
+     // Idecrement Product in  Cart
+
+    public function CartDecrement($rowId){
+         $row = Cart::get($rowId);
+        Cart::update($rowId, $row->qty - 1);
+return response()->json('Decrement');
+
+    }     // end decrement Product in Cart
+
+
+
+
+
 }
