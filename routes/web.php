@@ -242,6 +242,10 @@ Route::get('/cart-decrement/{rowId}', [CartPageController::class, 'cartDecrement
 Route::prefix('coupons')->group(function(){
 Route::get('/view',[CouponController::class,'CouponView'])->name('manage-coupon');
 
+Route::post('/store',[CouponController::class,'CouponStore'])->name('coupon.store');
+
+
+
 
 });
 
