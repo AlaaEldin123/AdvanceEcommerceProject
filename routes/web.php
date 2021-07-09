@@ -255,6 +255,8 @@ Route::get('/delete/{id}',[CouponController::class,'CouponDelete'])->name('coupo
 
 
 
+// Admin shipping all routes
+
 Route::prefix('shipping')->group(function(){
 Route::get('/division/view',[ShippingAreaController::class,'DivisionView'])->name('manage-division');
 
@@ -265,5 +267,21 @@ Route::get('/division/edit/{id}',[ShippingAreaController::class,'DivisionEdit'])
 Route::post('/division/update/{id}',[ShippingAreaController::class,'DivisionUpdate'])->name('division.update');
 
 Route::get('/division/delete/{id}',[ShippingAreaController::class,'DivisionDelete'])->name('division.delete');
+
+
+
+// shipping district routes
+
+Route::get('/district/view',[ShippingAreaController::class,'DistrictView'])->name('manage-district');
+
+Route::post('/division/store',[ShippingAreaController::class,'DivisionStore'])->name('division.store');
+
+Route::get('/division/edit/{id}',[ShippingAreaController::class,'DivisionEdit'])->name('division.edit');
+
+Route::post('/division/update/{id}',[ShippingAreaController::class,'DivisionUpdate'])->name('division.update');
+
+Route::get('/division/delete/{id}',[ShippingAreaController::class,'DivisionDelete'])->name('division.delete');
+
+
 
 });
