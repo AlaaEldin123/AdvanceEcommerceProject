@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\CouponController;
+use App\Http\Controllers\backend\ShippingAreaController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -254,3 +255,15 @@ Route::get('/delete/{id}',[CouponController::class,'CouponDelete'])->name('coupo
 
 
 
+Route::prefix('shipping')->group(function(){
+Route::get('/division/view',[ShippingAreaController::class,'DivisionView'])->name('manage-division');
+
+Route::post('/division/store',[ShippingAreaController::class,'DivisionStore'])->name('division.store');
+
+Route::get('/division/edit/{id}',[ShippingAreaController::class,'DivisionEdit'])->name('division.edit');
+
+Route::post('/division/update/{id}',[ShippingAreaController::class,'DivisionUpdate'])->name('division.update');
+
+Route::get('/division/delete/{id}',[ShippingAreaController::class,'DivisionDelete'])->name('division.delete');
+
+});
