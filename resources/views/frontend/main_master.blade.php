@@ -736,5 +736,50 @@ function cartIncrement(rowId){
 
 <!-- /// End Load my CART Data  -->
 
+
+<!-- /// start apply coupon   -->
+
+<script type="text/javascript">
+    
+function applyCoupon(){
+    var coupon_name = $('#coupon_name').val();
+    $.ajax({
+        type:'POST',
+        dataType:'json',
+        data:{coupon_name:coupon_name},
+        url:"{{url('/coupon-apply')}}",
+        success:function(data){
+
+
+        }
+
+
+
+    })
+
+}
+
+
+
+
+
+
+</script>
+
+
+<!-- /// end apply coupon   -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
