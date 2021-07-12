@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Session;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Auth;
+
+
 class CartController extends Controller
 {
      public function AddToCart(Request $request, $id){
-        
+
           if(Session::has('coupon')){
             Session::forget('coupon');
 
@@ -164,6 +166,48 @@ class CartController extends Controller
     public function CouponRemove(){
         Session::forget('coupon');
         return response()->json(['success' => 'Coupon Remove Successfully']);
+    }// end method
+
+
+
+    // Chekout
+
+      public function CheckoutCreate(){
+        if(Auth::check()){
+            if (Cart::total() > 0) {
+        $carts = Cart::content();
+        $cartQty = Cart::count();
+        $cartTotal = Cart::total();
+
+
+        return view('frontend.ckeckout.ckeckout_view',compact('carts','cartQty','cartTotal'));
+
+
+            }
+else{
+
+      $notification = array(
+            'message' => 'Shipping At list one product',
+            'alert-type' => 'error');
+       return redirect()->to('/')->with($notification);
+}
+       
+
+
+
+
+        }else{
+
+             $notification = array(
+            'message' => 'You Need to Login First',
+            'alert-type' => 'error'
+        );
+
+        return redirect()->route('login')->with($notification);
+
+        }
+
+
     }// end method
 
 
