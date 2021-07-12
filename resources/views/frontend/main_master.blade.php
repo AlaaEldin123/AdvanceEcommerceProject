@@ -749,6 +749,9 @@ function applyCoupon(){
         data:{coupon_name:coupon_name},
         url:"{{url('/coupon-apply')}}",
         success:function(data){
+             couponCalculation();
+             $('#couponField').hide();
+             $('#coupon_name').val('');
 
              // Start Message 
                 const Toast = Swal.mixin({
@@ -846,6 +849,61 @@ function applyCoupon(){
 
 
 
+<!-- /// start apply coupon  remove  -->
+
+<script type="text/javascript">
+     
+     function couponRemove(){
+        $.ajax({
+            type:'GET',
+            url: "{{ url('/coupon-remove') }}",
+            dataType: 'json',
+            success:function(data){
+                couponCalculation();
+                $('#couponField').show();
+
+
+
+                 // Start Message 
+                const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      
+                      showConfirmButton: false,
+                      timer: 3000
+                    })
+                if ($.isEmptyObject(data.error)) {
+                    Toast.fire({
+                        type: 'success',
+                        icon: 'success',
+                        title: data.success
+                    })
+
+                }else{
+                    Toast.fire({
+                        type: 'error',
+                        icon: 'error',
+                        title: data.error
+                    })
+
+                }
+
+                // End Message 
+
+            }
+        });
+
+     }
+
+
+</script>
+
+
+
+
+
+
+<!-- /// end apply coupon remove  -->
 
 
 

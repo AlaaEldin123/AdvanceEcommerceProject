@@ -56,7 +56,7 @@
 	@else
 
 	
-	<table class="table">
+	<table class="table" id="couponField">
 		<thead>
 			<tr>
 				<th>
@@ -97,7 +97,7 @@
 	<table class="table">
 		<thead id="couponCalField">
 			
-			
+
 		</thead><!-- /thead -->
 		<tbody>
 				<tr>
