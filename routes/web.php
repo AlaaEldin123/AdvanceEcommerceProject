@@ -307,3 +307,5 @@ Route::get('/state/delete/{id}', [ShippingAreaController::class, 'StatetDelete']
 // frontend coupon option
 
 Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
+
+Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
