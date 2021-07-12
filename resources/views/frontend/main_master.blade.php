@@ -695,6 +695,7 @@ function cartIncrement(rowId){
         url:"/cart-increment/"+rowId,
         dataType:'json',
         success:function(data){
+            couponCalculation();
             cart();
             miniCart();
 
@@ -715,7 +716,7 @@ function cartIncrement(rowId){
             url: "/cart-decrement/"+rowId,
             dataType:'json',
             success:function(data){
-               
+                couponCalculation();
                 cart();
                 miniCart();
             }
