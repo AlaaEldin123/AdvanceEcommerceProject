@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\WishList;
 use App\Models\Coupon;
+use App\Models\ShipDivision;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 
@@ -27,11 +28,11 @@ class CartController extends Controller
 
         if ($product->discount_price == NULL) {
             Cart::add([
-                'id' => $id, 
-                'name' => $request->product_name, 
-                'qty' => $request->quantity, 
+                'id' => $id,
+                'name' => $request->product_name,
+                'qty' => $request->quantity,
                 'price' => $product->selling_price,
-                'weight' => 1, 
+                'weight' => 1,
                 'options' => [
                     'image' => $product->product_thambnail,
                     'color' => $request->color,
@@ -44,11 +45,11 @@ class CartController extends Controller
         }else{
 
             Cart::add([
-                'id' => $id, 
-                'name' => $request->product_name, 
-                'qty' => $request->quantity, 
+                'id' => $id,
+                'name' => $request->product_name,
+                'qty' => $request->quantity,
                 'price' => $product->discount_price,
-                'weight' => 1, 
+                'weight' => 1,
                 'options' => [
                     'image' => $product->product_thambnail,
                     'color' => $request->color,
@@ -58,7 +59,7 @@ class CartController extends Controller
             return response()->json(['success' => 'Successfully Added on Your Cart']);
         }
 
-    } // end mehtod 
+    } // end mehtod
 
 
   // Mini Cart Section
@@ -74,20 +75,20 @@ class CartController extends Controller
             'cartTotal' => round($cartTotal),
 
         ));
-    } // end method 
+    } // end method
 
 
 
-    /// remove mini cart 
+    /// remove mini cart
     public function RemoveMiniCart($rowId){
         Cart::remove($rowId);
         return response()->json(['success' => 'Product Remove from Cart']);
 
-    } // end mehtod 
+    } // end mehtod
 
-    
 
-    // add wishlist 
+
+    // add wishlist
     public function AddToWishlist(Request $request, $product_id){
 
         if (Auth::check()) {
@@ -96,9 +97,9 @@ class CartController extends Controller
 
             if (!$exists) {
                Wishlist::insert([
-                'user_id' => Auth::id(), 
-                'product_id' => $product_id, 
-                'created_at' => Carbon::now(), 
+                'user_id' => Auth::id(),
+                'product_id' => $product_id,
+                'created_at' => Carbon::now(),
             ]);
            return response()->json(['success' => 'Successfully Added On Your Wishlist']);
 
@@ -106,15 +107,15 @@ class CartController extends Controller
 
                 return response()->json(['error' => 'This Product has Already on Your Wishlist']);
 
-            }            
-            
+            }
+
         }else{
 
             return response()->json(['error' => 'At First Login Your Account']);
 
         }
 
-    } // end method 
+    } // end method
 
 
 
@@ -128,20 +129,20 @@ class CartController extends Controller
             Session::put('coupon',[
                 'coupon_name' => $coupon->coupon_name,
                 'coupon_discount' => $coupon->coupon_discount,
-                'discount_amount' => round(Cart::total() * $coupon->coupon_discount/100), 
-                'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount/100)  
+                'discount_amount' => round(Cart::total() * $coupon->coupon_discount/100),
+                'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount/100)
             ]);
- 
+
             return response()->json(array(
                 'validity' => true,
                 'success' => 'Coupon Applied Successfully'
             ));
-            
+
         }else{
             return response()->json(['error' => 'Invalid Coupon']);
         }
 
-    } // end method 
+    } // end method
 
 
     public function CouponCalculation(){
@@ -160,7 +161,7 @@ class CartController extends Controller
             ));
 
         }
-    } // end method 
+    } // end method
 
 
     public function CouponRemove(){
@@ -178,9 +179,10 @@ class CartController extends Controller
         $carts = Cart::content();
         $cartQty = Cart::count();
         $cartTotal = Cart::total();
+        $divisions = ShipDivision::orderBy('division_name','ASC')->get();
 
 
-        return view('frontend.ckeckout.ckeckout_view',compact('carts','cartQty','cartTotal'));
+        return view('frontend.ckeckout.ckeckout_view',compact('carts','cartQty','cartTotal','divisions'));
 
 
             }
@@ -191,7 +193,7 @@ else{
             'alert-type' => 'error');
        return redirect()->to('/')->with($notification);
 }
-       
+
 
 
 
