@@ -44,7 +44,7 @@
 			 <div class="col-md-6 col-sm-6 already-registered-login">
 		 <h4 class="checkout-subtitle"><b>Shipping Address</b></h4>
 
-	<form class="register-form" action="" method="POST">
+	<form class="register-form" action="{{route('checkout.store')}}" method="POST">
 		@csrf
 
 
@@ -233,10 +233,66 @@
 	</div>
 </div>
 <!-- checkout-progress-sidebar -->				</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-4">
+    <!-- checkout-progress-sidebar -->
+<div class="checkout-progress-sidebar ">
+<div class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<h4 class="unicase-checkout-title">Select Payment Method</h4>
+</div>
+<div class="row">
+<div class="col-md-4">
+    <label >Stripe</label>
+    <input type="radio" name="payment_method" value="stripe">
+    <img src="{{asset('frontend/assets/images/payments/4.png')}}">
+
+</div> {{-- end col-md-4 --}}
+
+<div class="col-md-4">
+<label >Card</label>
+<input type="radio" name="payment_method" value="card">
+<img src="{{asset('frontend/assets/images/payments/3.png')}}">
+
+</div> {{-- end col-md-4 --}}
+
+<div class="col-md-4">
+
+    <label >Cash</label>
+    <input type="radio" name="payment_method" value="cash">
+    <img src="{{asset('frontend/assets/images/payments/2    .png')}}">
+
+</div> {{-- end col-md-4 --}}
+
+</div>{{-- end row --}}
+<hr>
+<button type="submit" class="btn-upper btn btn-primary checkout-page-button">
+    Payment Step
+</button>
+
+</div>
+</div>
+</div>
+<!-- checkout-progress-sidebar -->				</div>
+
+
+</form>
+
 			</div><!-- /.row -->
 		</div><!-- /.checkout-box -->
 		<!-- ============================================== BRANDS CAROUSEL
-<!--======================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
+======================================= BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
 </div><!-- /.body-content -->
 
 
@@ -274,7 +330,8 @@
 
                      var d =$('select[name="state_id"]').empty();
                         $.each(data, function(key, value){
-                            $('select[name="state_id"]').append('<option value="'+ value.id +'">' + value.state_name + '</option>');
+                            $('select[name="state_id"]').append('<option value="'+ value.id +'">
+                            ' + value.state_name + '</option>');
                         });
                   },
               });
