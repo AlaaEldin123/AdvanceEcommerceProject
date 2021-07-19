@@ -101,31 +101,31 @@
 
 
 		 <div class="form-group">
-	<h5><b>District Select</b>  <span class="text-danger">*</span></h5>
-	<div class="controls">
-		<select name="district_id" class="form-control" required="" >
-			<option value="" selected="" disabled="">Select District</option>
+            <h5><b>District Select</b>  <span class="text-danger">*</span></h5>
+            <div class="controls">
+                <select name="district_id" class="form-control" required="" >
+                    <option value="" selected="" disabled="">Select District</option>
 
-		</select>
-		@error('district_id')
-	 <span class="text-danger">{{ $message }}</span>
-	 @enderror
-	 </div>
-		 </div> <!-- // end form group -->
+                </select>
+                @error('district_id')
+             <span class="text-danger">{{ $message }}</span>
+             @enderror
+             </div>
+                 </div> <!-- // end form group -->
 
 
-		 <div class="form-group">
-	<h5><b>State Select</b> <span class="text-danger">*</span></h5>
-	<div class="controls">
-		<select name="state_id" class="form-control" required="" >
-			<option value="" selected="" disabled="">Select State</option>
+                 <div class="form-group">
+            <h5><b>State Select</b> <span class="text-danger">*</span></h5>
+            <div class="controls">
+                <select name="state_id" class="form-control" required="" >
+                    <option value="" selected="" disabled="">Select State</option>
 
-		</select>
-		@error('state_id')
-	 <span class="text-danger">{{ $message }}</span>
-	 @enderror
-	 </div>
-		 </div> <!-- // end form group -->
+                </select>
+                @error('states_id')
+             <span class="text-danger">{{ $message }}</span>
+             @enderror
+             </div>
+                 </div> <!-- // end form group -->
 
 
     <div class="form-group">
@@ -171,6 +171,7 @@
 @foreach($carts as $item)
 					<li>
 						<strong>Image: </strong>
+                        <img src="{{ asset($item->options->image) }}" style="height: 50px; width: 50px;">
 
 					</li>
 
@@ -239,6 +240,52 @@
 </div><!-- /.body-content -->
 
 
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('select[name="division_id"]').on('change', function(){
+          var division_id = $(this).val();
+          if(division_id) {
+              $.ajax({
+                  url: "{{  url('/district-get/ajax') }}/"+division_id,
+                  type:"GET",
+                  dataType:"json",
+                  success:function(data) {
+
+                     var d =$('select[name="district_id"]').empty();
+                        $.each(data, function(key, value){
+                            $('select[name="district_id"]').append('<option value="'+ value.id +'">' + value.district_name + '</option>');
+                        });
+                  },
+              });
+          } else {
+              alert('danger');
+          }
+      });
+
+      $('select[name="district_id"]').on('change', function(){
+          var district_id = $(this).val();
+          if(district_id) {
+              $.ajax({
+                  url: "{{  url('/state-get/ajax') }}/"+district_id,
+                  type:"GET",
+                  dataType:"json",
+                  success:function(data) {
+
+                     var d =$('select[name="state_id"]').empty();
+                        $.each(data, function(key, value){
+                            $('select[name="state_id"]').append('<option value="'+ value.id +'">' + value.state_name + '</option>');
+                        });
+                  },
+              });
+          } else {
+              alert('danger');
+          }
+      });
+
+
+  });
+  </script>
 
 
 
