@@ -118,10 +118,10 @@
             <h5><b>State Select</b> <span class="text-danger">*</span></h5>
             <div class="controls">
                 <select name="state_id" class="form-control" required="" >
-                    <option value="" selected="" disabled="">Select State</option>
+                    <option  selected="" disabled="">Select State</option>
 
                 </select>
-                @error('states_id')
+                @error('state_id')
              <span class="text-danger">{{ $message }}</span>
              @enderror
              </div>
@@ -271,7 +271,7 @@
 
     <label >Cash</label>
     <input type="radio" name="payment_method" value="cash">
-    <img src="{{asset('frontend/assets/images/payments/2    .png')}}">
+    <img src="{{asset('frontend/assets/images/payments/2.png')}}">
 
 </div> {{-- end col-md-4 --}}
 
@@ -319,26 +319,26 @@
           }
       });
 
-      $('select[name="district_id"]').on('change', function(){
-          var district_id = $(this).val();
-          if(district_id) {
-              $.ajax({
-                  url: "{{  url('/state-get/ajax') }}/"+district_id,
-                  type:"GET",
-                  dataType:"json",
-                  success:function(data) {
 
-                     var d =$('select[name="state_id"]').empty();
-                        $.each(data, function(key, value){
-                            $('select[name="state_id"]').append('<option value="'+ value.id +'">
-                            ' + value.state_name + '</option>');
-                        });
-                  },
-              });
-          } else {
-              alert('danger');
-          }
-      });
+      $('select[name="district_id"]').on('change', function(){
+            var district_id = $(this).val();
+            if(district_id) {
+                $.ajax({
+                    url: "{{  url('/state-get/ajax') }}/"+district_id,
+                    type:"GET",
+                    dataType:"json",
+                    success:function(data) {
+                       var d =$('select[name="state_id"]').empty();
+                          $.each(data, function(key, value){
+                              $('select[name="state_id"]').append('<option value="'+ value.id +'">' + value.state_name + '</option>');
+                          });
+                    },
+                });
+            } else {
+                alert('danger');
+            }
+        });
+
 
 
   });
