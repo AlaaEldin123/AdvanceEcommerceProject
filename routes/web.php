@@ -96,7 +96,7 @@ Route::get('/edit/{id}', [CategoryController::class, 'CategoryEdit'])->name('cat
 Route::post('/update/{id}', [CategoryController::class, 'CategoryUpdate'])->name('category.update');
 Route::get('/delete/{id}', [CategoryController::class, 'CategoryDelete'])->name('category.delete');
 
-						
+
 
 // admin subcategory all route
 Route::get('/sub/view', [SubCategoryController::class, 'SubCategoryView'])->name('all.subcategory');
@@ -175,7 +175,7 @@ Route::get('/language/arabic',[LanguageController::class,'Arabic'])->name('arabi
 
 Route::get('/product/details/{id}/{slug}',[IndexController::class,'ProductsDetails']);
 
-// frontend product tags 
+// frontend product tags
 Route::get('/product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
 
 

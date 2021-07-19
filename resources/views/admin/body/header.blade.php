@@ -14,7 +14,7 @@
 				<a href="#" data-provide="fullscreen" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="Full Screen">
 					<i class="nav-link-icon mdi mdi-crop-free"></i>
 			    </a>
-			</li>			
+			</li>
 			<li class="btn-group nav-item d-none d-xl-inline-block">
 				<a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
 					<i class="ti-check-box"></i>
@@ -32,11 +32,11 @@
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
 		  <!-- full Screen -->
-	      <li class="search-bar">		  
+	      <li class="search-bar">
 			  <div class="lookup lookup-circle lookup-right">
 			     <input type="text" name="s">
 			  </div>
-		  </li>			
+		  </li>
 		  <!-- Notifications -->
 		  <li class="dropdown notifications-menu">
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle" data-toggle="dropdown" title="Notifications">
@@ -87,7 +87,7 @@
 				  </li>
 				  <li>
 					<a href="#">
-					  <i class="fa fa-user text-primary"></i> Nunc fringilla lorem 
+					  <i class="fa fa-user text-primary"></i> Nunc fringilla lorem
 					</a>
 				  </li>
 				  <li>
@@ -101,8 +101,8 @@
 				  <a href="#">View all</a>
 			  </li>
 			</ul>
-		  </li>	
-		  
+		  </li>
+
 @php
 $adminData = DB::table('admins')->first();
 @endphp
@@ -110,7 +110,7 @@ $adminData = DB::table('admins')->first();
 
 
 	      <!-- User Account-->
-          <li class="dropdown user user-menu">	
+          <li class="dropdown user user-menu">
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">
 				<img src="{{(!empty($adminData->profile_photo_path))? url('upload/admin_images/'.$adminData->	profile_photo_path):url('upload/no_image.jpg')}}" alt="">
 			</a>
@@ -123,13 +123,13 @@ $adminData = DB::table('admins')->first();
 				 <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="ti-lock text-muted mr-2"></i> Logout</a>
 			  </li>
 			</ul>
-          </li>	
+          </li>
 		  <li>
               <a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
 			  	<i class="ti-settings"></i>
 			  </a>
           </li>
-			
+
         </ul>
       </div>
     </nav>

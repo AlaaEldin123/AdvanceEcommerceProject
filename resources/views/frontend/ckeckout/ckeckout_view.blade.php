@@ -30,48 +30,68 @@
 <div class="panel panel-default checkout-step-01">
 
 	<!-- panel-heading -->
-		
+
     <!-- panel-heading -->
 
 	<div id="collapseOne" class="panel-collapse collapse in">
 
 		<!-- panel-body  -->
 	    <div class="panel-body">
-			<div class="row">		
+			<div class="row">
 
-				<!-- guest-login -->			
-				<div class="col-md-6 col-sm-6 guest-login">
-					<h4 class="checkout-subtitle">Guest or Register Login</h4>
-					<p class="text title-tag-line">Register with us for future convenience:</p>
+				<!-- guest-login -->
+                <div class="col-md-6 col-sm-6 already-registered-login">
+					<h4 class="checkout-subtitle"><b>Shipping Address</b></h4>
 
-					<!-- radio-form  -->
 					<form class="register-form" role="form">
-					    <div class="radio radio-checkout-unicase">  
-					        <input id="guest" type="radio" name="text" value="guest" checked>  
-					        <label class="radio-button guest-check" for="guest">Checkout as Guest</label>  
-					          <br>
-					        <input id="register" type="radio" name="text" value="register">  
-					        <label class="radio-button" for="register">Register</label>  
-					    </div>  
+
+        <div class="form-group">
+        <label class="info-title" for="exampleInputEmail1">Shipping Name <span>*</span></label>
+        <input placeholder="Full Name" type="text"
+        class="form-control unicase-form-control text-input" id="exampleInputEmail1"
+         value="{{Auth::user()->name}}" name="shipping_name" required="">
+        </div>       {{-- end form  group --}}
+
+        <div class="form-group">
+            <label class="info-title" for="exampleInputEmail1"> Email <span>*</span></label>
+            <input placeholder="Email" type="email"
+            class="form-control unicase-form-control text-input" id="exampleInputEmail1"
+             value="{{Auth::user()->email}}" name="shipping_email" required="">
+            </div>       {{-- end form  group --}}
+
+            <div class="form-group">
+                <label class="info-title" for="exampleInputEmail1"> Phone <span>*</span></label>
+                <input placeholder="Phone" type="number"
+                class="form-control unicase-form-control text-input" id="exampleInputEmail1"
+                 value="{{Auth::user()->phone}}" name="phone " required="">
+                </div>       {{-- end form  group --}}
+
+                <div class="form-group">
+                    <label class="info-title" for="exampleInputEmail1"> Post Code <span>*</span></label>
+                    <input placeholder="Post Code" type="text"
+                    class="form-control unicase-form-control text-input" id="exampleInputEmail1"
+                     name="post_code " required="">
+                    </div>
+
 					</form>
-					<!-- radio-form  -->
-
-					<h4 class="checkout-subtitle outer-top-vs">Register and save time</h4>
-					<p class="text title-tag-line ">Register with us for future convenience:</p>
-					
-					<ul class="text instruction inner-bottom-30">
-						<li class="save-time-reg">- Fast and easy check out</li>
-						<li>- Easy access to your order history and status</li>
-					</ul>
-
-					<button type="submit" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Continue</button>
 				</div>
 				<!-- guest-login -->
 
+
+
+
+
+
+
+
+
+
+
+
 				<!-- already-registered-login -->
 				<div class="col-md-6 col-sm-6 already-registered-login">
-					<h4 class="checkout-subtitle">Already registered?</h4>
-					<p class="text title-tag-line">Please log in below:</p>
+					<h4 class="checkout-subtitle"><b>Shipping Address</b></h4>
+
 					<form class="register-form" role="form">
 						<div class="form-group">
 					    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
@@ -84,21 +104,21 @@
 					  </div>
 					  <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
 					</form>
-				</div>	
-				<!-- already-registered-login -->		
+				</div>
+				<!-- already-registered-login -->
 
-			</div>			
+			</div>
 		</div>
 		<!-- panel-body  -->
 
 	</div><!-- row -->
 </div>
 <!-- checkout-step-01  -->
-					  
 
 
 
-					  	
+
+
 					</div><!-- /.checkout-steps -->
 				</div>
 				<div class="col-md-4">
@@ -112,7 +132,7 @@
 		    <div class="">
 				<ul class="nav nav-checkout-progress list-unstyled">
 
-@foreach($carts as $item)	
+@foreach($carts as $item)
 					<li>
 						<strong>Image: </strong>
 						<img src="{{asset($item->options->image)}}" style="height: 50px; width: 50px;">
@@ -141,7 +161,7 @@
 					<li>
 
 						@if(Session::has('coupon'))
-					<strong>SubTotal: </strong> {{$cartTotal}} <hr>	
+					<strong>SubTotal: </strong> {{$cartTotal}} <hr>
 
 					<strong>Coupon Name: </strong> {{Session()->get('coupon')['coupon_name'] }}
 					( {{Session()->get('coupon')['coupon_discount']}} %)
@@ -149,37 +169,37 @@
 					 <hr>
 
 					<strong>Coupon Discount: </strong>$ {{Session()->get('coupon')['discount_amount'] }}
-					
+
 
 					 <hr>
 
 
 					<strong>Grand Total: </strong>$ {{Session()->get('coupon')['total_amount'] }}
-					
+
 
 					 <hr>
 
 
 						@else
 
-					<strong>SubTotal: </strong> {{$cartTotal}} <hr>	
+					<strong>SubTotal: </strong> {{$cartTotal}} <hr>
 					<strong>Grand Total: </strong> {{$cartTotal}} <hr>
 						@endif
 
 
 					</li>
-					
 
-					
-				</ul>		
+
+
+				</ul>
 			</div>
 		</div>
 	</div>
-</div> 
+</div>
 <!-- checkout-progress-sidebar -->				</div>
 			</div><!-- /.row -->
 		</div><!-- /.checkout-box -->
-		<!-- ============================================== BRANDS CAROUSEL 
+		<!-- ============================================== BRANDS CAROUSEL
 <!--======================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
 </div><!-- /.body-content -->
 
