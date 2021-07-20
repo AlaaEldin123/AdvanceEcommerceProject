@@ -15,6 +15,8 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
+
 use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
 
@@ -218,7 +220,8 @@ Route::get('/get-wishlist-product', [WishlistController::class, 'GetWishlistProd
 // remove product from wishlist page
 Route::get('/wishlist-remove/{id}', [WishlistController::class, 'RemoveWishlistProduct']);
 
-
+//get product top wishlist page
+Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.store');
 
 
 
