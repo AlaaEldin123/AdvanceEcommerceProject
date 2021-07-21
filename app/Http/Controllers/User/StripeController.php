@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderMail;
 use Illuminate\Http\Request;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Order;
@@ -10,6 +11,7 @@ use App\Models\OrderItem;
 use Illuminate\Support\Facades\Session;
 use Auth;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 
 class StripeController extends Controller
@@ -65,8 +67,14 @@ class StripeController extends Controller
 
      ]);
 
-
-
+     $invoice = Order::findOrFail($order_id);
+     $data=[
+        'invoice_no' =>$invoice->invoice_no,
+        'amount' => $total_amount,
+        'name' => $invoice->name,
+     	'email' => $invoice->email,
+     ];
+     Mail::to($request->email)->send(new OrderMail($data));
 
      $carts = Cart::content();
      foreach ($carts as $cart) {
@@ -91,7 +99,8 @@ class StripeController extends Controller
 
      $notification = array(
 			'message' => 'Your Order Place Successfully',
-			'alert-type' => 'success'
+			'alert-type' => 'success',
+
 		);
 
 		return redirect()->route('dashboard')->with($notification);
