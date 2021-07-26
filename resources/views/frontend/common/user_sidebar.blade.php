@@ -20,3 +20,5 @@ $user = App\Models\User::find($id);
 
 
 			</div><!-- end col me 2  -->
+
+		
