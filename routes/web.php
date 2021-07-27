@@ -230,6 +230,9 @@ Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.order
 
 Route::get('/order_details/{order_id}', [AllUserController::class, 'OrderDetails']);
 
+Route::get('/invoice_download/{order_id}', [AllUserController::class, 'InvoiceDownload']);
+
+
 
 });
 

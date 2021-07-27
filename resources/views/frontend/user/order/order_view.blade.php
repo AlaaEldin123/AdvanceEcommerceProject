@@ -70,7 +70,7 @@
 								<td class="col-md-1">								
 									<a href="{{url('user/order_details/'.$order->id)}}" class="btn btn-sm btn-primary"><i class="fa fa-eye"></i>View</a>
 
-										<a href="" class="btn btn-sm btn-danger" style="color: white;"><i class="fa fa-download"></i>Invoice</a>
+										<a href="{{url('user/invoice_download/'.$order->id)}}" class="btn btn-sm btn-danger" style="color: white; margin-top:5px;"><i class="fa fa-download"></i>Invoice</a>
 
 								</td>
 							</tr>
