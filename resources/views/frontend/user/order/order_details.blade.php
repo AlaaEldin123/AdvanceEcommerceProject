@@ -228,6 +228,16 @@
 	        	
 	        </div><!-- end row  -->
 
+@if($order->status !== "delivered")
+@else
+<div class="form-group">
+	<label for="label">Order Return Reason :</label>
+	<textarea name="return_reason" class="form-control" cols="30" rows="05" placeholder="Return Reason">
+		
+	</textarea>
+</div>
+
+@endif
 
 
 
