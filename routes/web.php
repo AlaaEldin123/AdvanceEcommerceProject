@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\ShippingAreaController;
+use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -338,3 +339,17 @@ Route::get('/district-get/ajax/{division_id}', [CheckoutController::class, 'Dist
 Route::get('/state-get/ajax/{district_id}', [CheckoutController::class, 'StateGetAjax']);
 
 Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
+
+
+
+
+
+
+
+// admin Order all route
+
+Route::prefix('orders')->group(function(){
+
+Route::get('/pending/orders',[OrderController::class,'PendingOrders'])->name('manage-orders');
+
+});
