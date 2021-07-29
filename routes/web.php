@@ -355,4 +355,21 @@ Route::get('/pending/orders',[OrderController::class,'PendingOrders'])->name('ma
 Route::get('/pending/orders/details/{order_id}',[OrderController::class,'PendingOrdersDetails'])->name('pending.order.details');
 
 
+
+Route::get('/confirmed/orders',[OrderController::class,'ConfirmedOrders'])->name('confirmed-orders');
+
+
+Route::get('/processing/orders',[OrderController::class,'ProcessingOrders'])->name('processing-orders');
+
+
+
+Route::get('/picked/orders',[OrderController::class,'pickedOrders'])->name('picked-orders');
+
+Route::get('/shipped/orders',[OrderController::class,'ShippedOrders'])->name('shipped-orders');
+
+
+Route::get('/delivered/orders',[OrderController::class,'DeliveredOrders'])->name('delivered-orders');
+
+Route::get('/cancel/orders',[OrderController::class,'CancelOrders'])->name('cancel-orders');
+
 });
