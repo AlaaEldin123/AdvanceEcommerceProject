@@ -352,4 +352,7 @@ Route::prefix('orders')->group(function(){
 
 Route::get('/pending/orders',[OrderController::class,'PendingOrders'])->name('manage-orders');
 
+Route::get('/pending/orders/details/{order_id}',[OrderController::class,'PendingOrdersDetails'])->name('pending.order.details');
+
+
 });

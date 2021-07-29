@@ -43,7 +43,7 @@
 		<td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span>  </td>
 
 		<td width="25%">
- <a href="" class="btn btn-info" title="Edit Data"><i class="fa fa-eye"></i> </a>
+ <a href="{{route('pending.order.details',$item->id)}}" class="btn btn-info" title="Edit Data"><i class="fa fa-eye"></i> </a>
  
 		</td>
 							 
