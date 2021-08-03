@@ -53,7 +53,7 @@ return view('backend.brand.brand_edit',compact('brand'));
    }
 
    public function BrandUpdate(Request $request){
-    	
+
     	$brand_id = $request->id;
     	$old_img = $request->old_image;
 
@@ -88,7 +88,7 @@ return view('backend.brand.brand_edit',compact('brand'));
 		'brand_name_ar' => $request->brand_name_ar,
 		'brand_slug_en' => strtolower(str_replace(' ', '-',$request->brand_name_en)),
 		'brand_slug_ar' => str_replace(' ', '-',$request->brand_name_ar),
-		 
+
 
     	]);
 
@@ -117,7 +117,7 @@ return view('backend.brand.brand_edit',compact('brand'));
 
 		return redirect()->back()->with($notification);
 
-    } // end method 
+    } // end method
 
 
 

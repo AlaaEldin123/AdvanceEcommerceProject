@@ -3,13 +3,13 @@
     @section('content')
 
 <div class="body-content">
-	
+
 	<div class="container">
-		
+
 		<div class="row">
-			
+
 				@include('frontend.common.user_sidebar')
-					
+
 	        <div class="col-md-5">
 	        	<div class="card">
 	        		<div class="card-header"><h4>Shipping Details</h4></div>
@@ -57,12 +57,12 @@
             </tr>
 
 	        			</table>
-	        			
+
 	        		</div>
 
 
 	        	</div>
-	        	
+
 
 	        </div><!-- end col md 5  -->
 
@@ -115,20 +115,32 @@
                <th> <span class="badge badge-pill badge-warning" style="background:#418DB9;">{{$order->status}}</span> </th>
             </tr>
 
+            <tr>
+                <th>  </th>
+                 <th>
+                @if($order->status == 'pending')
+                <a href="" class="btn btn-block btn-success">Confirm Order</a>
+
+                @endif
+
+                </th>
+              </tr>
+
+
 
 	        			</table>
-	        			
+
 	        		</div>
 
 
 	        	</div>
-	        	
+
 
 	        </div><!-- end second col md 5  -->
 
 
 
-	    
+
 
 	        	 	<div class="col-md-12">
 
@@ -218,14 +230,14 @@
 
 
 						</tbody>
-						
+
 
 					</table>
-					
+
 				</div>
-				
+
 			</div><!-- end col me 8  -->
-	        	
+
 	        </div><!-- end row  -->
 
 @if($order->status !== "delivered")
@@ -233,7 +245,7 @@
 <div class="form-group">
 	<label for="label">Order Return Reason :</label>
 	<textarea name="return_reason" class="form-control" cols="30" rows="05" placeholder="Return Reason">
-		
+
 	</textarea>
 </div>
 
