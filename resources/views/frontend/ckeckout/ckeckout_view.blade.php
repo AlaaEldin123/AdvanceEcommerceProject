@@ -118,6 +118,7 @@
             <h5><b>State Select</b> <span class="text-danger">*</span></h5>
             <div class="controls">
                 <select  name="state_id" class="form-control" required="" >
+                	<option disabled=""> sad</option>
                     <option  selected="" disabled="">Select State</option >
 
                 </select>

@@ -39,4 +39,21 @@ class AllUserController extends Controller
         // return view('frontend.user.order.order_invoice',compact('order','orderItem'));
 
     }
+
+
+    public function ReturnOrder(Request $request,$order_id){
+
+    Order::findOrFail($order_id)->update([
+        'return_date' =>Carbon::now()->format('d F Y'),
+        'return_reason' =>$request->return_reason,
+
+    ]);
+     $notification = array(
+            'message' => 'Return Request Send Successfully',
+            'alert-type' => 'success'
+        );
+
+     return redirect()->route('my.orders')->with($notification);
+
+    }// end method
 }
