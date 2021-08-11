@@ -409,3 +409,13 @@ Route::post('/search/by/year', [ReportController::class, 'ReportByYear'])->name(
 
 
 });
+
+
+
+// Got All User Route
+Route::prefix('alluser')->group(function(){
+
+Route::get('/view',[AdminProfileController::class,'AllUsers'])->name('all-user');
+
+
+});

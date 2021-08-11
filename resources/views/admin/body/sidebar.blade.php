@@ -189,7 +189,21 @@ $route =Route::current()->getName();
         </li> 
 		  
      	  		  
-		  
+		     <li class="treeview {{($prefix =='/alluser')?'active':''}}">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span>All User</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+             <li class="{{ ($route == 'all-user')? 'active':'' }}"><a href="{{ route('all-user') }}"><i class="ti-more"></i>All User</a></li>
+
+          </ul>
+        </li> 
+      
 		
          
         
