@@ -235,6 +235,9 @@ Route::get('/invoice_download/{order_id}', [AllUserController::class, 'InvoiceDo
 
 Route::post('/return/order/{order_id}',[AllUserController::class,'ReturnOrder'])->name('return.order');
 
+Route::get('/return/order/list',[AllUserController::class,'ReturnOrderList'])->name('return.order.list');
+
+
 });
 
 // My Cart All Routes

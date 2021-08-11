@@ -244,6 +244,11 @@
 @if($order->status !== "delivered")
 @else
 
+ @php 
+      $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
+ @endphp
+
+@if($order)
 <form method="post" action="{{route('return.order',$order->id)}}">
 	@csrf
 <div class="form-group">
@@ -255,6 +260,10 @@
 
 <button type="submit" class="btn btn-danger">Submit</button>
 </form>
+@else
+<span class="badge badge-pill badge-warning" style="background:red">You Have Request For This Product</span>
+@endif
+
 
 @endif
 
