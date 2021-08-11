@@ -237,6 +237,7 @@ Route::post('/return/order/{order_id}',[AllUserController::class,'ReturnOrder'])
 
 Route::get('/return/order/list',[AllUserController::class,'ReturnOrderList'])->name('return.order.list');
 
+Route::get('/cancel/order',[AllUserController::class,'CancelOrder'])->name('cancel.orders');
 
 });
 
