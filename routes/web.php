@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\ShippingAreaController;
 use App\Http\Controllers\backend\OrderController;
+use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -391,6 +392,15 @@ Route::get('/picked/shipped/{order_id}', [OrderController::class, 'PickedToShipp
 Route::get('/shipped/delivered/{order_id}', [OrderController::class, 'ShippedToDelivered'])->name('shipped.delivered');
 
 Route::get('/invoice/download/{order_id}', [OrderController::class, 'AdminInvoiceDownload'])->name('invoice.download');
+
+
+});
+
+
+// Admin Reports Routes
+Route::prefix('reports')->group(function(){
+
+Route::get('/view',[ReportController::class,'ReportView'])->name('all-reports');
 
 
 });
