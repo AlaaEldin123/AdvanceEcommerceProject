@@ -21,7 +21,7 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-					   <form method="post" action="{{ route('brand.store') }}">
+					   <form method="post" action="{{ route('search-by-date') }}">
 	 	@csrf
 					   
 
@@ -67,7 +67,7 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-					   <form method="post" action="{{ route('brand.store') }}" enctype="multipart/form-data">
+					   <form method="post" action="{{ route('search-by-month') }}">
 	 	@csrf
 					   
 
@@ -192,7 +192,7 @@
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-					   <form method="post" action="{{ route('brand.store') }}" enctype="multipart/form-data">
+					   <form method="post" action="{{ route('search-by-year') }}" >
 	 	@csrf
 					   
 
