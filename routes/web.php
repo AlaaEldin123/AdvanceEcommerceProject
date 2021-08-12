@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\CouponController;
 use App\Http\Controllers\backend\ShippingAreaController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ReportController;
+use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\WishlistController;
@@ -416,6 +417,19 @@ Route::post('/search/by/year', [ReportController::class, 'ReportByYear'])->name(
 Route::prefix('alluser')->group(function(){
 
 Route::get('/view',[AdminProfileController::class,'AllUsers'])->name('all-user');
+
+
+});
+
+
+
+
+// Admin Reports Routes
+Route::prefix('blog')->group(function(){
+
+Route::get('/category',[BlogController::class,'BlogCategory'])->name('blog-category');
+
+
 
 
 });
