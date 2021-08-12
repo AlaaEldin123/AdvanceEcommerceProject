@@ -12,5 +12,17 @@ class HomeBlogController extends Controller
         $blogcategory = BlogPostCategory::latest()->get();
         $blogpost= BlogPost::latest()->get();
         return view('frontend.blog.blog_list',compact('blogpost','blogcategory'));
+    }// end method
+
+
+    public function DetailsBlogPost($id){
+    $blogcategory = BlogPostCategory::latest()->get();
+
+    $blogpost = BlogPost::findOrFail($id);
+    return view('frontend.blog.blog_deatils',compact('blogpost','blogcategory'));
+
+
     }
+
+
 }

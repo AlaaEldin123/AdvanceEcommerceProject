@@ -453,3 +453,5 @@ Route::post('/post/store', [BlogController::class, 'BlogPostStore'])->name('post
 
 // frontend blog show routes
 Route::get('/blog', [HomeBlogController::class, 'AddBlogPost'])->name('home.blog');
+
+Route::get('/post/details/{id}', [HomeBlogController::class, 'DetailsBlogPost'])->name('post.details');
