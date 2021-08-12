@@ -236,6 +236,10 @@
   </li>
   @endforeach <!-- // End Category Foreach -->  <!-- end category foreach -->
                 <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
+
+                <li class="dropdown  navbar-right special-menu"> <a href="{{route('home.blog')}}"> Blog</a> </li>
+
+
               </ul>
               <!-- /.navbar-nav -->
               <div class="clearfix"></div>

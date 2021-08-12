@@ -15,13 +15,14 @@ use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\CashController;
 use App\Http\Controllers\User\AllUserController;
-use App\Http\Controllers\Frontend\IndexController;
 use App\Models\User;
 
 /*
@@ -446,3 +447,9 @@ Route::post('/post/store', [BlogController::class, 'BlogPostStore'])->name('post
 
 
 });
+
+
+
+
+// frontend blog show routes
+Route::get('/blog', [HomeBlogController::class, 'AddBlogPost'])->name('home.blog');
