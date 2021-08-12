@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\ShippingAreaController;
 use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\BlogController;
+use App\Http\Controllers\backend\SiteSettingController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -456,3 +457,14 @@ Route::get('/blog', [HomeBlogController::class, 'AddBlogPost'])->name('home.blog
 
 Route::get('/post/details/{id}', [HomeBlogController::class, 'DetailsBlogPost'])->name('post.details');
 Route::get('/blog/category/post/{category_id}', [HomeBlogController::class, 'HomeBlogCatPost']);
+
+
+
+
+// Admin Blog Routes
+Route::prefix('setting')->group(function(){
+
+Route::get('/site',[SiteSettingController::class,'SiteSetting'])->name('site.setting');
+
+
+});
