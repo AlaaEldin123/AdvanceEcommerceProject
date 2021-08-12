@@ -424,7 +424,7 @@ Route::get('/view',[AdminProfileController::class,'AllUsers'])->name('all-user')
 
 
 
-// Admin Reports Routes
+// Admin Blog Routes
 Route::prefix('blog')->group(function(){
 
 Route::get('/category',[BlogController::class,'BlogCategory'])->name('blog-category');
@@ -435,5 +435,10 @@ Route::get('/category/edit/{id}',[BlogController::class,'BlogCategoryEdit'])->na
 Route::post('/update',[BlogController::class,'BlogCategoryUpdate'])->name('blogcategory.update');
 
 Route::get('/delete/{id}', [BlogController::class, 'BlogCategoryDelete'])->name('blog.category.delete');
+
+// Admin Blog post Routes
+
+Route::get('/view/post',[BlogController::class,'ViewBlogPost'])->name('view.post');
+
 
 });
