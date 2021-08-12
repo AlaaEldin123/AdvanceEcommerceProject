@@ -10,7 +10,7 @@ class HomeBlogController extends Controller
 {
     public function AddBlogPost(){
         $blogcategory = BlogPostCategory::latest()->get();
-        $blogpost= BlogPost::latest()->get();
+        $blogpost = BlogPost::latest()->get();
         return view('frontend.blog.blog_list',compact('blogpost','blogcategory'));
     }// end method
 
@@ -22,7 +22,16 @@ class HomeBlogController extends Controller
     return view('frontend.blog.blog_deatils',compact('blogpost','blogcategory'));
 
 
-    }
+    }// end method
 
+
+   
+    public function HomeBlogCatPost($category_id){
+
+        $blogcategory = BlogPostCategory::latest()->get();
+        $blogpost = BlogPost::where('category_id',$category_id)->orderBy('id','DESC')->get();
+        return view('frontend.blog.blog_cat_list',compact('blogpost','blogcategory'));
+
+    } // end mehtod 
 
 }

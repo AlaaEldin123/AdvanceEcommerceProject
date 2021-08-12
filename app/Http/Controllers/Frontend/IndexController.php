@@ -12,9 +12,12 @@ use App\Models\Slider;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\MultiImg;
+use App\Models\BlogPost;
 class IndexController extends Controller
 {
     public function Index(){
+    $blogpost= BlogPost::latest()->get();
+
     $categories = Category::orderBy('category_name_en','ASC')->get();
     $products = Product::where('status',1)->orderBy('id','DESC')->limit(6)->get();
     $featured = Product::where('featured',1)->orderBy('id','DESC')->limit(6)->get();
@@ -33,7 +36,7 @@ class IndexController extends Controller
 	$skip_brand_product_1 = Product::where('status',1)->where('brand_id',$skip_brand_1->id)->orderBy('id','DESC')->get();
 
 
-    return view('frontend.index',compact('categories','sliders','products','featured','hot_deals','special_offer','special_deals','skip_category_0','skip_product_0','skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1'));
+    return view('frontend.index',compact('categories','sliders','products','featured','hot_deals','special_offer','special_deals','skip_category_0','skip_product_0','skip_category_1','skip_product_1','skip_brand_1','skip_brand_product_1','blogpost'));
     }
 
     public function UserLogout(){
