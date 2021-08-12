@@ -16,7 +16,7 @@
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
-	 <form method="post" action="" >
+	 <form method="post" action="{{ route('update.seosetting') }}" >
 	 	@csrf
 
 	 	<input type="hidden" name="id" value="{{ $seo->id }}">
