@@ -16,7 +16,7 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Return Orders List <span class="badge badge-pill badge-danger"> {{count($orders)}}</span></h3>
+				  <h3 class="box-title">All Return Orders Request <span class="badge badge-pill badge-danger"> {{count($orders)}}</span></h3>
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
@@ -40,23 +40,22 @@
 		<td> ${{ $item->amount }}  </td>
 
 		<td> {{ $item->payment_method }}  </td>
+<td>
+		@if($item->return_order == 1)
+      <span class="badge badge-pill badge-primary">Pending </span>
+       @elseif($item->return_order == 2)
+       <span class="badge badge-pill badge-success">Success </span>
+		@endif
 
-@if($item->return_order == 1)
-
-<span class="badge badge-pill badge-primary">Pending</span>
-@elseif($item->return_order == 2)
-<span class="badge badge-pill badge-primary">Success</span>
-
-@endif
-
-
-
-
-		<td> <span class="badge badge-pill badge-primary">{{ $item->status }} </span>  </td>
+		  </td>
 
 		<td width="25%">
-<a href="{{route('return.approve',$item->id)}}" class="btn btn-danger">Approve</a>
+  <span class="badge badge-success">Return Success </span>
 		</td>
+
+
+
+		
 							 
 	 </tr>
 	  @endforeach
