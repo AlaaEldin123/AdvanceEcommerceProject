@@ -258,7 +258,7 @@
 	</textarea>
 </div>
 
-<button type="submit" class="btn btn-danger">Submit</button>
+<button type="submit" class="btn btn-danger">Order Return</button>
 </form>
 @else
 <span class="badge badge-pill badge-warning" style="background:red">You Have Request For This Product</span>
