@@ -8,7 +8,7 @@
 		<div class="content-header">
 			<div class="d-flex align-items-center">
 				<div class="mr-auto">
-					<h3 class="page-title">Order Details<span class="badge badge-pill badge-danger"> {{count($orders)}}</span></h3>
+					<h3 class="page-title">Order Details</h3>
 					<div class="d-inline-block align-items-center">
 						<nav>
 							<ol class="breadcrumb">
