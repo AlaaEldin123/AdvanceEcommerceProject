@@ -202,6 +202,29 @@ $route =Route::current()->getName();
 
 
 
+<li class="treeview {{($prefix =='/review')?'active':''}}">
+          <a href="#">
+            <i data-feather="file"></i>
+            <span>Review Manage</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            
+             <li class="{{ ($route == 'pending.review')? 'active':'' }}"><a href="{{ route('pending.review') }}"><i class="ti-more"></i>Pending Review</a></li>
+
+             
+              <li class="{{ ($route == 'all.request')? 'active':'' }}"><a href="{{ route('all.request') }}"><i class="ti-more"></i>Publish Review</a></li>
+
+             
+
+          </ul>
+        </li> 
+
+
+
+
 		 
         <li class="header nav-small-cap">User Interface</li>
 		  

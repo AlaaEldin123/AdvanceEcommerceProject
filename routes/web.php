@@ -495,3 +495,13 @@ Route::get('/admin/all/request',[ReturnController::class,'ReturnAllRequest'])->n
 
 
 Route::get('/review/store',[ReviewController::class,'ReviewStore'])->name('review.store');
+
+
+
+// Admin Manage review routes
+Route::prefix('review')->group(function(){
+
+Route::get('/pending',[ReviewController::class,'PendingReview'])->name('pending.review');
+Route::get('/pending/approve/{id}',[ReviewController::class,'ReviewApprove'])->name('review.approve');
+
+});
