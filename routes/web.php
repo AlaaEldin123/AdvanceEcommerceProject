@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\User\WishlistController;
+use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\User\StripeController;
