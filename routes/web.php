@@ -504,4 +504,7 @@ Route::prefix('review')->group(function(){
 Route::get('/pending',[ReviewController::class,'PendingReview'])->name('pending.review');
 Route::get('/pending/approve/{id}',[ReviewController::class,'ReviewApprove'])->name('review.approve');
 
+Route::get('/publish',[ReviewController::class,'PublishReview'])->name('publish.review');
+Route::get('/review/delete/{id}',[ReviewController::class,'DeleteReview'])->name('delete.review');
+
 });
