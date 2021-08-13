@@ -489,3 +489,9 @@ Route::get('/admin/return/approve/{order_id}', [ReturnController::class, 'Return
 Route::get('/admin/all/request',[ReturnController::class,'ReturnAllRequest'])->name('all.request');
 
 });
+
+
+// Frontend product review routes
+
+
+Route::get('/review/store',[ReviewController::class,'ReviewStore'])->name('review.store');
