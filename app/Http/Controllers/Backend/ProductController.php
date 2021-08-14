@@ -277,6 +277,9 @@ class ProductController extends Controller
 	}
 
 
-
+public function ProductStock(){
+	$products = Product::latest()->get();
+    	return view('backend.product.product_stock',compact('products'));
+    	}
 
 }/// end product controller

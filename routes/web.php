@@ -508,3 +508,13 @@ Route::get('/publish',[ReviewController::class,'PublishReview'])->name('publish.
 Route::get('/review/delete/{id}',[ReviewController::class,'DeleteReview'])->name('delete.review');
 
 });
+
+
+
+// Admin Manage review routes
+Route::prefix('stock')->group(function(){
+
+Route::get('/product',[ProductController::class,'ProductStock'])->name('product.stock');
+
+
+});

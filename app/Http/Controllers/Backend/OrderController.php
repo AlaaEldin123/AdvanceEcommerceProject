@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\OrderItem;
 use Auth;
 use Carbon\Carbon;
 use PDF;
-
+use DB;
 class OrderController extends Controller
 {
     // Pending Orders 
@@ -72,6 +73,8 @@ return view('backend.orders.pending_orders_details',compact('order','orderItem')
     } // end mehtod 
 
     public function PendingToConfirm($order_id){
+
+
         Order::findOrFail($order_id)->update([ 'status'=>'confirm']);
 
         $notification = array(
@@ -132,7 +135,16 @@ return view('backend.orders.pending_orders_details',compact('order','orderItem')
     } // end method
 
 
-     public function ShippedToDelivered($order_id){    
+     public function ShippedToDelivered($order_id){  
+
+     $product = OrderItem::where('order_id',$order_id)->get();
+
+     foreach ($product as $item) {
+        Product::where('id',$item->product_id)
+                ->update(['product_qty' => DB::raw('product_qty-'.$item->qty)]);
+     }
+
+
 
       Order::findOrFail($order_id)->update(['status' => 'delivered']);
 
