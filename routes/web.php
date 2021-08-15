@@ -15,6 +15,7 @@ use App\Http\Controllers\backend\ReportController;
 use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\backend\SiteSettingController;
 use App\Http\Controllers\backend\ReturnController;
+use App\Http\Controllers\backend\AdminUserController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -515,6 +516,17 @@ Route::get('/review/delete/{id}',[ReviewController::class,'DeleteReview'])->name
 Route::prefix('stock')->group(function(){
 
 Route::get('/product',[ProductController::class,'ProductStock'])->name('product.stock');
+
+
+});
+
+
+
+
+// Admin Manage ADMIN users role
+Route::prefix('adminuserrole')->group(function(){
+
+Route::get('/all',[AdminUserController::class,'AllAdminRole'])->name('all.admin.user');
 
 
 });
