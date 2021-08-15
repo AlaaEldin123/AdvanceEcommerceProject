@@ -537,4 +537,7 @@ Route::get('/edit/{id}',[AdminUserController::class,'EditAdminRole'])->name('edi
 
 Route::post('/update',[AdminUserController::class,'UpdateAdminRole'])->name('admin.user.update');
 
+Route::get('/delete/{id}',[AdminUserController::class,'DeleteAdminRole'])->name('delete.admin.user');
+
+
 });
