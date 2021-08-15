@@ -8,6 +8,11 @@
 			<div class="row">
 				
 
+@php
+$adminData = Auth::user();
+
+
+@endphp
 
 
 
@@ -19,7 +24,7 @@
 					  <h6 class="widget-user-desc">Email : {{ $adminData->email }}</h6>
 					</div>
 					<div class="widget-user-image">
- <img class="rounded-circle" src="{{(!empty($adminData->profile_photo_path))? url('upload/admin_images/'.$adminData->	profile_photo_path):url('upload/no_image.jpg')}}">
+ <img class="rounded-circle" src="{{(!empty(asset($adminData->profile_photo_path) ))? url('upload/admin_images/'.$adminData->profile_photo_path):url('upload/no_image.jpg')}}">
 					</div>
 					<div class="box-footer">
 					  <div class="row">
