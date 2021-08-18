@@ -212,7 +212,7 @@ Route::get('/product/mini/cart/', [CartController::class, 'AddMiniCart']);
 Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
 
 
-
+/// route of user auth just
 // add wishlist
 Route::post('/add-to-wishlist/{product_id}', [CartController::class, 'AddToWishlist']);
 
@@ -245,6 +245,11 @@ Route::post('/return/order/{order_id}',[AllUserController::class,'ReturnOrder'])
 Route::get('/return/order/list',[AllUserController::class,'ReturnOrderList'])->name('return.order.list');
 
 Route::get('/cancel/order',[AllUserController::class,'CancelOrder'])->name('cancel.orders');
+
+
+// order tracking
+Route::get('/order/tracking',[AllUserController::class,'OrderTracking'])->name('order.tracking');
+
 
 });
 

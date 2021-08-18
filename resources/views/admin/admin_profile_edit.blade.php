@@ -4,19 +4,19 @@
 
 <div class="container-full">
 
-	<section class="content">
+	 <section class="content">
 
 		 <!-- Basic Forms -->
 		  <div class="box">
 			<div class="box-header with-border">
 			  <h4 class="box-title">Admin Profile Edit</h4>
-			  <h6 class="box-subtitle">Bootstrap Form Validation check the <a class="text-warning" href="http://reactiveraven.github.io/jqBootstrapValidation/">official website </a></h6>
+			  
 			</div>
 			<!-- /.box-header -->
 			<div class="box-body">
 			  <div class="row">
 				<div class="col">
-					<form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data" >
+	 <form method="post" action="{{ route('admin.profile.store') }}" enctype="multipart/form-data" >
 	 	@csrf
 					  <div class="row">
 						<div class="col-12">
@@ -89,24 +89,23 @@
 		  <!-- /.box -->
 
 		</section>
-		<!-- /.content -->
+ 
+
+
 	  </div>
 
 
 <script type="text/javascript">
 	$(document).ready(function(){
-
 		$('#image').change(function(e){
-
 			var reader = new FileReader();
 			reader.onload = function(e){
-				$('#showImage').attr('src',e.target.result);
+			 $('#showImage').attr('src',e.target.result);	
 			}
 			reader.readAsDataURL(e.target.files['0']);
-		})
-	})
-
+		});
+	});
 </script>
 
 
-	  @endsection
+@endsection

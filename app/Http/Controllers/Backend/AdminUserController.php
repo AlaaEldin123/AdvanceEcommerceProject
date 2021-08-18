@@ -112,7 +112,7 @@ class AdminUserController extends Controller
         'alluser' => $request->alluser,
         'adminuserrole' => $request->adminuserrole,
         'type' => 2,
-        'profile_photo_path' => $save_url,
+        'profile_photo_path' =>$save_url,
         'created_at' => Carbon::now(),
 
         ]);
@@ -165,13 +165,13 @@ class AdminUserController extends Controller
 
     } // end method 
 
-
+    
     public function DeleteAdminRole($id){
 
         $adminimg = Admin::findOrFail($id);
         $img = $adminimg->profile_photo_path;
         unlink($img);
-
+        
         Admin::findOrFail($id)->delete();
 
          $notification = array(

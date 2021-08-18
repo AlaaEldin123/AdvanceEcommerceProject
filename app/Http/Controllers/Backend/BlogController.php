@@ -58,9 +58,9 @@ class BlogController extends Controller
 
     public function BlogCategoryUpdate(Request $request){
 
-     
+
         $blogcat_id = $request->id;
-        
+
 
     BlogPostCategory::findOrFail($blogcat_id)->update([
         'blog_category_name_en' => $request->blog_category_name_en,
@@ -77,13 +77,13 @@ class BlogController extends Controller
             'alert-type' => 'info'
         );
         return redirect()->route('blog-category')->with($notification);
-    
+
     }
 
 
     public function BlogCategoryDelete($id){
 
-    
+
         BlogPostCategory::findOrFail($id)->delete();
         $notification = array(
             'message' => 'Blog Category Delete Successfully',

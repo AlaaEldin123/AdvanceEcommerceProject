@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 class CategoryController extends Controller
 {
-   
+
     public function CategoryView(){
 	$category = Category::latest()->get();
 	return view('backend.category.category_view',compact('category'));
@@ -23,7 +23,7 @@ class CategoryController extends Controller
     		'category_name_ar.required' => 'Input Category Arabic Name',
     	]);
 
-    	
+
 
 	Category::insert([
 		'category_name_en' => $request->category_name_en,
@@ -74,5 +74,7 @@ class CategoryController extends Controller
 		);
 		return redirect()->back()->with($notification);
 	}
+
+
 
 }
