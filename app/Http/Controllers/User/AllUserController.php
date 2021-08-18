@@ -75,8 +75,28 @@ class AllUserController extends Controller
 
 
     // order tracking
-    public function OrderTracking(){
+    public function OrderTracking(Request $request){
+        $invoice = $request->code;
 
+        $track = Order::where('invoice_no',$invoice)->first();
+
+        if($track){
+             // echo "<pre>";
+            // print_r($track);
+
+            return view('frontend.traking.track_order',compact('track'));
+
+
+
+        }else{
+
+            $notification = array(
+                'message' => 'Invoice Code Is Invalid',
+                'alert-type' => 'error'
+            );
+
+            return redirect()->back()->with($notification);
+        }
 
     }   // end method
 
