@@ -546,3 +546,6 @@ Route::get('/delete/{id}',[AdminUserController::class,'DeleteAdminRole'])->name(
 
 
 });
+
+
+Route::post('/search',[IndexController::class,'ProductSearch'])->name('product.search');

@@ -13,6 +13,9 @@ use App\Models\Brand;
 use App\Models\Product;
 use App\Models\MultiImg;
 use App\Models\BlogPost;
+
+use function Ramsey\Uuid\v1;
+
 class IndexController extends Controller
 {
     public function Index(){
@@ -26,7 +29,7 @@ class IndexController extends Controller
     $special_offer = Product::where('special_offer',1)->orderBy('id','DESC')->limit(3)->get();
     $sliders = Slider::where('status',1)->orderBy('id','DESC')->limit(3)->get();
 	$skip_category_0 = Category::skip(0)->first();
-	$skip_product_0 = Product::where('status',1)->where('category_id',$skip_category_0->id)->orderBy('id','DESC')->get();	
+	$skip_product_0 = Product::where('status',1)->where('category_id',$skip_category_0->id)->orderBy('id','DESC')->get();
 
 
 	$skip_category_1 = Category::skip(1)->first();
@@ -43,7 +46,7 @@ class IndexController extends Controller
 	Auth::logout();
 	return Redirect()->route('login');
     }
-   
+
    public function UserProfile(){
    	$id =Auth::user()->id;
    	$user = User::find($id);
@@ -75,7 +78,7 @@ class IndexController extends Controller
 
 
   public function UserChangePassword(){
-  	
+
   	 return view('frontend.profile.change_password');
   }
 
@@ -139,7 +142,7 @@ class IndexController extends Controller
 
 	}
 
-    
+
 
 
 // subcategoey wise data
@@ -180,8 +183,18 @@ class IndexController extends Controller
 
 		));
 
-	} // end method 
+	} // end method
 
+
+    //search method
+    public function ProductSearch(Request $request){
+        $item = $request->search;
+        $categories = Category::orderBy('category_name_en','ASC')->get();
+        $products = Product::where('product_name_en','LIKE',"%$item%")->get();
+        return view('frontend.product.search',compact('products','categories'));
+
+
+    }
 
 
 

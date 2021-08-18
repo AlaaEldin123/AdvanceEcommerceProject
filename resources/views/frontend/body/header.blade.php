@@ -89,7 +89,9 @@
           <!-- /.contact-row -->
           <!-- ============================================================= SEARCH AREA ============================================================= -->
           <div class="search-area">
-            <form>
+            <form method="post" action="{{route('product.search')}}">
+                @csrf
+
               <div class="control-group">
                 <ul class="categories-filter animate-dropdown">
                   <li class="dropdown"> <a class="dropdown-toggle"  data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
@@ -102,7 +104,7 @@
                     </ul>
                   </li>
                 </ul>
-                <input class="search-field" placeholder="Search here..." />
+                <input class="search-field" placeholder="Search here..." / name="search">
                 <a class="search-button" href="#" ></a> </div>
             </form>
           </div>
