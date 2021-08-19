@@ -217,7 +217,7 @@ Subcategory Product
 
         <span class="badge badge-danger" style="background: #808080">{{ $item->category->category_name_en }} </span>
                @endforeach
-
+/
                @foreach($breadsubcat as $item)
         <span class="badge badge-danger" style="background: #FF0000">{{ $item->subcategory_name_en }} </span>
 
