@@ -104,7 +104,7 @@
                     </ul>
                   </li>
                 </ul>
-                <input class="search-field" placeholder="Search here..." / name="search" >
+                <input class="search-field" id="search" placeholder="Search here..." / name="search" >
                 <button class="search-button" type="submit"></button> </div>
             </form>
           </div>

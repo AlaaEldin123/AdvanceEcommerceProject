@@ -200,6 +200,11 @@ class IndexController extends Controller
 
     }
 
+    public function SearchProduct(Request $request){
+    	return $request;
+
+    }
+
 
 
 }
