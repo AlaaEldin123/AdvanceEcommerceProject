@@ -105,7 +105,7 @@
                   </li>
                 </ul>
                 <input class="search-field" placeholder="Search here..." / name="search" >
-                <a class="search-button" href="#" ></a> </div>
+                <button class="search-button" type="submit"></button> </div>
             </form>
           </div>
           <!-- /.search-area -->
