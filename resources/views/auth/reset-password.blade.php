@@ -52,7 +52,7 @@
 <!-- create a new account -->           </div><!-- /.row -->
         </div><!-- /.sigin-in-->
         <!-- ============================================== BRANDS CAROUSEL ============================================= BRANDS CAROUSEL : END ============================================== -->    </div><!-- /.container -->
-         @include('frontend.body.brands')
+      
 </div><!-- /.body-content -->
 
 
