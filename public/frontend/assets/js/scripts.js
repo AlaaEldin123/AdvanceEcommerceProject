@@ -337,6 +337,7 @@ jQuery("[data-toggle='tooltip']").tooltip();
         let text = $("#search").val();
         // console.log(text);
 
+if(text.length > 0){
         $.ajax({
             data:{search: text},
             url : site_url + "search-product",
@@ -351,9 +352,21 @@ jQuery("[data-toggle='tooltip']").tooltip();
 
 
         }); // end ajax
+    }   // end if
+
+    if(text.length < 1) $("#searchProducts").html("");
+
+
+    
+
+
+
+
+
 
 
     });  
     // end one
+
 
 })
