@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\HomeBlogController;
+use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\CartPageController;
@@ -551,3 +552,9 @@ Route::get('/delete/{id}',[AdminUserController::class,'DeleteAdminRole'])->name(
 Route::post('/search',[IndexController::class,'ProductSearch'])->name('product.search');
 // advance search routes
 Route::post('search-product',[IndexController::class,'SearchProduct']);
+
+
+
+// shop page route
+
+Route::get('/shop',[ShopController::class,'ShopPage'])->name('shop.page');
