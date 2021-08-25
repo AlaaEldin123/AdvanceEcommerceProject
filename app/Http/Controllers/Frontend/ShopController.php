@@ -13,11 +13,12 @@ class ShopController extends Controller
     public function ShopPage(){
 
          $products = Product::query();
+         dd($products);
 
         if (!empty($_GET['category'])) {
             $slugs = explode(',',$_GET['category']);
             $catIds = Category::select('id')->whereIn('category_slug_en',$slugs)->pluck('id')->toArray();
-            $products = Product::whereIn('category_id',$catIds)->paginate(3);
+            $products = $products->whereIn('category_id',$catIds)->paginate(3);
         }
         else{
               $products = Product::where('status',1)->orderBy('id','DESC')->paginate(3);
@@ -31,7 +32,20 @@ class ShopController extends Controller
 
 
     public function ShopFilter(Request $request){
+        $data = $request->all();
 
+       $catUrl = "";
+            if (!empty($data['category'])) {
+               foreach ($data['category'] as $category) {
+                  if (empty($catUrl)) {
+                     $catUrl .= '&category='.$category;
+                  }else{
+                    $catUrl .= ','.$category;
+                  }
+               } // end foreach condition
+            } // end if condition 
+
+        return redirect()->route('shop.page',$catUrl);
 
     }
 }

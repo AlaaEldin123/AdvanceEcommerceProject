@@ -26,7 +26,7 @@ Shop Page
 
 <form action="{{route('shop.filter')}}" method="post">
   
-
+@csrf
 
 
     <div class='row'>
@@ -50,13 +50,22 @@ Shop Page
               <div class="sidebar-widget-body">
                 <div class="accordion">
 
+ @if(!empty($_GET['category']))
+                  @php
+                  $filterCat = explode(',',$_GET['category']);
+                  @endphp
+                  @endif
+
+
+
 
  @foreach($categories as $category)
   <div class="accordion-group">
   <div class="accordion-heading"> 
 
 <label class="form-check-label">
-  <input type="checkbox" class="form-check-input" name="category[]" value="{{$category->category_slug_en}}" onchange="this.form.submit()">
+    <input type="checkbox" class="form-check-input" name="category[]" value="{{ $category->category_slug_en }}" @if(!empty($filterCat) && in_array($category->category_slug_en,$filterCat)) checked @endif  onchange="this.form.submit()">
+
 
    @if(session()->get('language') == 'arabic') {{ $category->category_name_ar }} @else {{ $category->category_name_en }} @endif </a> </div>
 
@@ -479,7 +488,7 @@ Shop Page
           <!-- /.tab-content -->
         
 
-{{ $products->links('vendor.pagination.custom')  }}
+{{ $products->appends($_GET)->links('vendor.pagination.custom')}}
 
 
 
